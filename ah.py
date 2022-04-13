@@ -13,7 +13,7 @@ post = (1682,558)
 exit = (1133,92)
 cancel = (1642,555)
 openAllMail = (370,451)
-tsmImageSearchRegion = (1115,535, 476,42)
+tsmImageSearchRegion = (1100,520, 550,80)
 ahErrorImageSerachRegion = (0,856,433,180)
 
 
@@ -25,8 +25,8 @@ Lpost = (1127,546)
 Lexit = (602,78)
 Lcancel = (1135,549)
 LopenAllMail = (328,457)
-LtsmImageSearchRegion = (583,533, 468,39)
-LahErrorImageSerachRegion = (0,475,511,167)
+LtsmImageSearchRegion = (500,450, 700,200)
+LahErrorImageSerachRegion = (33,601,460,22)
 
 #keybinds
 relocateMailbox = ','
@@ -36,7 +36,7 @@ openAh = 'num7'
 
 #logic
 run = False
-highRes = True
+highRes = False
 
 #delay
 ms = 0.1
@@ -89,6 +89,7 @@ def runCancelScann():
     pyautogui.moveTo(cancel[0],cancel[1],random.uniform(interv-0.2,interv+0.2))
     while done_cancelling == None : 
         if pyautogui.locateOnScreen('fail.png',confidence=mediumConfidence, region=ahErrorImageSerachRegion):
+            print('failed')
             break
         pyautogui.click()
         done_cancelling = pyautogui.locateOnScreen('done_cancelling.png',confidence=highConfidence,region=tsmImageSearchRegion)
